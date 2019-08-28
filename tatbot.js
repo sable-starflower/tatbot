@@ -21,6 +21,16 @@ client.on('message', msg => {
   var last_word = "";
   msg.content.toUpperCase().replace(/[^0-9A-Z ]/g, '').split(" ").forEach(function(word) {
 
+    if (word.length == 8) {
+      phrase = word.substring(0,4) + " " + word.substring(4,8);
+      if (seen_words[phrase] != true) {
+        msg.reply(":punch: " + phrase + " :punch:");
+        seen_words[phrase] = true;
+	fs.createWriteStream(path.join(__dirname, './seen_words.txt'), {flags: 'a'}).end(phrase + "\n");
+      }
+      last_word = "";
+    }
+
     if (word.length != 4) {
       last_word = "";
       return;
