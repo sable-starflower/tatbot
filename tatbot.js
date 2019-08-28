@@ -33,11 +33,9 @@ client.on('message', msg => {
       if (seen_words[phrase] != true) {
         msg.reply(":punch: " + phrase + " :punch:");
         seen_words[phrase] = true;
-        fs.writeFileSync(path.join(__dirname, './seen_words.txt'), Object.keys(seen_words).join("\n"), {encoding: 'utf8'});
-        last_word = "";
-      } else {
-        last_word = word;
+	fs.createWriteStream(path.join(__dirname, './seen_words.txt'), {flags: 'a'}).end(phrase + "\n");
       }
+      last_word = word;
     }
   });
 });
