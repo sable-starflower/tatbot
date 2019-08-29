@@ -19,7 +19,7 @@ client.on('message', msg => {
   }
 
   var last_word = "";
-  msg.content.toUpperCase().replace(/[^0-9A-Z ]/g, '').split(" ").forEach(function(word) {
+  msg.content.toUpperCase().replace(/[^0-9A-ZÁÉÍÓÚÄËÏÖÜÂÊÎÔÛÅØŒßÇÃÕÑÀÈÌÒÙÆ™£¢∞ ]/g, '').split(" ").forEach(function(word) {
 
     if (word.length == 8) {
       phrase = word.substring(0,4) + " " + word.substring(4,8);
