@@ -21,6 +21,9 @@ client.on('message', msg => {
   var last_word = "";
   msg.content.toUpperCase().replace(/[^0-9A-ZÁÉÍÓÚÄËÏÖÜÂÊÎÔÛÅØŒßÇÃÕÑÀÈÌÒÙÆ™£¢∞ ]/g, '').split(" ").forEach(function(word) {
 
+    if (word.length == 0) {
+      return;
+    }
     if (word.length == 8) {
       phrase = word.substring(0,4) + " " + word.substring(4,8);
       if (seen_words[phrase] != true) {
