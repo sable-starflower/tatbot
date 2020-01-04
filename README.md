@@ -1,6 +1,6 @@
 # what tf
 
-this bot looks for words in sentences that can be turned into :punch: NUCK TATS :punch:
+discord bot that looks for words in sentences that can be turned into :punch: NUCK TATS :punch:
 
 # hwo do it
 
